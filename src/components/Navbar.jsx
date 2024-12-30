@@ -32,7 +32,9 @@ const Navbar = () => {
   const handleLogin = () => {
     router.push("/login");
   };
-
+  if (pathName.includes("dashboard")) {
+    return <div>Dashboard layoutyy</div>;
+  }
   return (
     <div>
       <nav className="flex justify-between  bg-gray-700 p-5 text-white">
