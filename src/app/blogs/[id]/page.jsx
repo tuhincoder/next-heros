@@ -1,17 +1,11 @@
-import Link from "next/link";
+const page = ({ params }) => {
+  console.log(params.id);
+  const { title, description } = blogs.find((blog) => blog.id == params.id);
 
-const BlogsPage = () => {
   return (
-    <div className="p-24">
-      {blogs.map((blog) => (
-        <div key={blog.slug} className="border p-12 space-y-2">
-          <h2>{blog.title}</h2>
-          <h4>{blog.description}</h4>
-          <button className="bg-blue-400 px-2 py-3 border">
-            <Link href={`/blogs/${blog.id}`}>View Details</Link>
-          </button>
-        </div>
-      ))}
+    <div className="h-screen">
+      <h1>{title}</h1>
+      <h1>{description}</h1>
     </div>
   );
 };
@@ -67,5 +61,4 @@ const blogs = [
       "A comprehensive guide to creating a blog using Next.js and Markdown for content.",
   },
 ];
-
-export default BlogsPage;
+export default page;
